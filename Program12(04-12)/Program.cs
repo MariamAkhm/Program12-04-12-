@@ -8,6 +8,14 @@ namespace Program12_04_12_
 {
     class Program
     {
+        delegate List<Books> Sort();
+        static void PrintList(List<Books> books)
+        {
+            foreach (var book in books)
+            {
+                Console.WriteLine(book);
+            }
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("12.1");
@@ -34,7 +42,25 @@ namespace Program12_04_12_
             Console.WriteLine(complexNumber2+complexNumber1);
             Console.WriteLine(complexNumber2*complexNumber1);
 
-            Console.WriteLine("13.1");
+            Console.WriteLine("делегаты");
+            List<Books> books = new List<Books>
+            {
+                new Books("1984"," Джордж Оруэлл","АСТ"),
+                new Books("Преступление и наказание", "Федор Михайлович Достоевский", "Просвещение"),
+            };
+            BookList bookList = new BookList(books);
+            Sort sort = bookList.SortByName;
+            books = sort();
+            PrintList(books);
+            Console.WriteLine();
+            sort = bookList.SortByAuthor;
+            books = sort();
+            PrintList(books);
+            Console.WriteLine();
+            sort = bookList.SortByPublishing;
+            books = sort();
+            PrintList(books);
+            Console.WriteLine();
 
         }
     }

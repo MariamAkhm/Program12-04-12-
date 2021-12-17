@@ -9,14 +9,14 @@ namespace met13
     class BankTransaction
     {
         private readonly double summa;
-        private uint index = 0;
-        public uint ID => index;
+        private uint id = 0;
+        public uint ID => id;
         public double Summa => summa;
         public BankTransaction(double summa)
         {
             this.summa = summa;
             Console.WriteLine($"Перевод суммы: {summa}; Время: {DateTime.Now}");
-            index++;
+            id++;
         }
     }
 }

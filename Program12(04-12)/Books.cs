@@ -8,14 +8,18 @@ namespace Program12_04_12_
 {
     class Books
     {
-        public string name;
-        public string author;
-        public string publishing;
+        public string Name { get;set; }
+        public string Author { get;set; }
+        public string Publishing { get;set; }
         public Books(string name, string author, string publishing)
         {
-            this.name = name;
-            this.author = author;
-            this.publishing = publishing;
+            Name = name;
+            Author = author;
+            Publishing = publishing;
+        }
+        public override string ToString()
+        {
+            return $"{Name} {Author} {Publishing}";
         }
 
     }
